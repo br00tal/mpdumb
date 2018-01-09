@@ -1,0 +1,13 @@
+{
+  "bot_nick": "bot_user",
+  "bot_user": "bot_user",
+  "irc_user": "irc_user",
+  "server": "irc.somenetwork.org",
+  "port": 6667,
+  "ssl": false,
+  "channels": [
+    "#some_channel"
+  ],
+  "mpd_server": "192.168.1.1",
+  "mpd_port": 6600
+}

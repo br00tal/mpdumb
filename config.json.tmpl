@@ -1,0 +1,17 @@
+{
+  "bot_nick": "{{ .Env.BOT_NICK }}",
+  "bot_user": "{{ .Env.BOT_NICK }}",
+  "irc_user": "{{ .Env.IRC_USER }}",
+  {{ if isTrue .Env.SASL }}
+  "sasl_username": "{{ .Env.BOT_NICK }}",
+  "sasl_password": "{{ .Env.PASSWORD }}",
+  {{ end }}
+  "server": "{{ .Env.SERVER }}",
+  "port": {{ .Env.PORT }},
+  "ssl": {{ .Env.SSL }},
+  "channels": [
+    "{{ .Env.CHANNEL }}"
+  ],
+  "mpd_server": "{{ .Env.MPD_SERVER }}",
+  "mpd_port": {{ .Env.MPD_PORT }}
+}
