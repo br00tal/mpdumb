@@ -23,6 +23,11 @@ bot = Cinch::Bot.new do
   end
 
   chan = config['channels'].first
+  if config['user_notify']
+    line = "User: #{config['irc_user']} | Playing: %s by %s [%s]"
+  else
+    line = 'Playing: %s by %s [%s]'
+  end
 
   mpd = MPD.new config['mpd_server'], config['mpd_port']
   mpd.connect
@@ -36,8 +41,7 @@ bot = Cinch::Bot.new do
         unless current_song == song
           if User(config['irc_user']).online?
             post = Format(:italic,
-              'User: %s | Playing: %s by %s [%s]' % [
-                Format(:bold, User(config['irc_user']).nick),
+              line % [
                 Format(:bold, song.title),
                 Format(:bold, song.artist),
                 Format(:bold, song.length)

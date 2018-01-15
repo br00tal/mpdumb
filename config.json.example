@@ -2,6 +2,7 @@
   "bot_nick": "bot_user",
   "bot_user": "bot_user",
   "irc_user": "irc_user",
+  "user_notify": false,
   "server": "irc.somenetwork.org",
   "port": 6667,
   "ssl": false,

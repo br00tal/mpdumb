@@ -1,9 +1,18 @@
 {
   "bot_nick": "{{ .Env.BOT_NICK }}",
+  {{ if .Env.BOT_USER }}
+  "bot_user": "{{ .Env.BOT_USER }}",
+  {{ else }}
   "bot_user": "{{ .Env.BOT_NICK }}",
+  {{ end }}
   "irc_user": "{{ .Env.IRC_USER }}",
+  "user_notify": {{ .Env.USER_NOTIFY }},
   {{ if isTrue .Env.SASL }}
+  {{ if .Env.BOT_USER }}
+  "sasl_username": "{{ .Env.BOT_USER }}",
+  {{ else }}
   "sasl_username": "{{ .Env.BOT_NICK }}",
+  {{ end }}
   "sasl_password": "{{ .Env.PASSWORD }}",
   {{ end }}
   "server": "{{ .Env.SERVER }}",
